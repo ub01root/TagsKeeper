@@ -52,7 +52,7 @@ tagskeeper.legend
 
 TagsKeeper supports custom placeholders:
 ```yaml
-%tagskeeper.{tag}%
+%tagskeeper.tag%
 ```
 
 
