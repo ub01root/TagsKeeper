@@ -1,0 +1,166 @@
+# ┌─────────────────────────────────────────────────────────────┐
+# │                       TAGS SETTINGS                         │
+# └─────────────────────────────────────────────────────────────┘
+#
+# DEV: github.com/DevAdvvy
+
+tags:
+  campeon:
+    tag: "&8&#FFD700&lᴄᴀᴍᴘᴇᴏɴ&8"
+    menu-display: "&fTag &8&#FFD700&lᴄᴀᴍᴘᴇᴏɴ&8"
+    preview: "&8&#FFD700&lᴄᴀᴍᴘᴇᴏɴ&8 &f{player}"
+    permission: "tagskeeper.campeon"
+    material: NAME_TAG
+
+    page: 1
+    slot: 10
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  mvp:
+    tag: "&8&#00AAFF&lᴍᴠᴘ&8"
+    menu-display: "&fTag &8&#00AAFF&lᴍᴠᴘ&8"
+    preview: "&8&#00AAFF&lᴍᴠᴘ&8 &f{player}"
+    permission: "tagskeeper.mvp"
+    material: NAME_TAG
+
+    page: 1
+    slot: 11
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  elite:
+    tag: "&8&#FF6A00&lᴇʟɪᴛᴇ&8"
+    menu-display: "&fTag &8&#FF6A00&lᴇʟɪᴛᴇ&8"
+    preview: "&8&#FF6A00&lᴇʟɪᴛᴇ&8 &f{player}"
+    permission: "tagskeeper.elite"
+    material: NAME_TAG
+    slot: 12
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  random:
+    tag: "&8&#A2A2A2&lʀᴀɴᴅᴏᴍ&8"
+    menu-display: "&fTag &8&#A2A2A2&lʀᴀɴᴅᴏᴍ&8"
+    preview: "&8&#A2A2A2&lʀᴀɴᴅᴏᴍ&8 &f{player}"
+    permission: "tagskeeper.random"
+    material: NAME_TAG
+
+    page: 1
+    slot: 13
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  veterano:
+    tag: "&8&#2ECC71&lᴠᴇᴛᴇʀᴀɴᴏ&8"
+    menu-display: "&fTag &8&#2ECC71&lᴠᴇᴛᴇʀᴀɴᴏ&8"
+    preview: "&8&#2ECC71&lᴠᴇᴛᴇʀᴀɴᴏ&8 &f{player}"
+    permission: "tagskeeper.veterano"
+    material: NAME_TAG
+
+    page: 1
+    slot: 14
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  og:
+    tag: "&8&#F54927&lᴏɢ&8"
+    menu-display: "&fTag &8&#F54927&lᴏɢ&8"
+    preview: "&8&#F54927&lᴏɢ&8 &f{player}"
+    permission: "tagskeeper.og"
+    material: NAME_TAG
+
+    page: 1
+    slot: 15
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  koth:
+    tag: "&8&#E7180B&lᴋᴏᴛʜ&8"
+    menu-display: "&fTag &8&#E7180B&lᴋᴏᴛʜ&8"
+    preview: "&8&#E7180B&lᴋᴏᴛʜ&8 &f{player}"
+    permission: "tagskeeper.koth"
+    material: NAME_TAG
+
+    page: 1
+    slot: 16
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  emperor:
+    tag: "&8&#029100&lᴇ&#26A400&lᴍ&#4AB800&lᴘ&#6ECB00&lᴇ&#62B910&lʀ&#56A820&lᴏ&#4A9630&lʀ&8"
+    menu-display: "&fTag &8&#029100&lᴇ&#26A400&lᴍ&#4AB800&lᴘ&#6ECB00&lᴇ&#62B910&lʀ&#56A820&lᴏ&#4A9630&lʀ&8"
+    preview: "&8&#029100&lᴇ&#26A400&lᴍ&#4AB800&lᴘ&#6ECB00&lᴇ&#62B910&lʀ&#56A820&lᴏ&#4A9630&lʀ&8 &f{player}"
+    permission: "tagskeeper.emperor"
+    material: NAME_TAG
+
+    page: 2
+    slot: 13
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"
+  king:
+    tag: "&8&#C8C200&lᴋ&#E4B900&lɪ&#FFB000&lɴ&#F16C00&lɢ&8"
+    menu-display: "&fTag &8&#C8C200&lᴋ&#E4B900&lɪ&#FFB000&lɴ&#F16C00&lɢ&8"
+    preview: "&8&#C8C200&lᴋ&#E4B900&lɪ&#FFB000&lɴ&#F16C00&lɢ&8 &f{player}"
+    permission: "tagskeeper.king"
+    material: NAME_TAG
+
+    page: 3
+    slot: 13
+
+    lore:
+      - ""
+      - "&7Vista Previa:"
+      - "&f%preview%"
+      - ""
+      - "&7Status: %status%"
+      - ""
+      - "%selected%"

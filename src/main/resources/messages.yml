@@ -1,0 +1,31 @@
+# ┌─────────────────────────────────────────────────────────────┐
+# │                   MESSAGES SETTINGS                         │
+# └─────────────────────────────────────────────────────────────┘
+#
+# DEV: github.com/DevAdvvy
+
+prefix: "&#37E373&lᴛ&#3EE084&lᴀ&#45DD96&lɢ&#4CDAA7&lꜱ&#53D7B9&lᴋ&#5AD4CA&lᴇ&#51D5BA&lᴇ&#49D7AA&lᴘ&#40D899&lᴇ&#38DA89&lʀ &8»"
+no-permission: "%prefix% &cNo tienes permisos para este comando."
+
+tag-selected: "%prefix% &aTu seleccionaste el tag: %tag%"
+tag-already-selected: "%prefix% &eTu ya estas usando ese tag."
+tag-removed: "%prefix% &cTu tag ha sido removido."
+no-tag-equipped: "%prefix% &cActualmente no tienes ningun tag equipado."
+
+reload-success: "%prefix% &aPlugin recargado exitosamente."
+
+player-only: "%prefix% &cSolo jugadores pueden usar este comando."
+invalid-tag: "%prefix% &cTag Invalido."
+
+menu-open: "%prefix% &7Abriendo menu..."
+no-console: "%prefix% &cSolo jugadores pueden usar este comando."
+
+tag-status:
+
+  unlocked: "&aDesbloqueado"
+  locked: "&cBloqueado"
+
+tag-selection:
+
+  selected: "&a✔ Seleccionado"
+  not-selected: "&7Click para seleccionar"

@@ -1,0 +1,87 @@
+# ┌─────────────────────────────────────────────────────────────┐
+# │                       TAGS KEEPERS                          │
+# │                  DEV: github.com/DevAdvvy                   │
+# └─────────────────────────────────────────────────────────────┘
+# │                                                             │
+# │                       PAGE SETTINGS                         │
+# │                                                             │
+# └─────────────────────────────────────────────────────────────┘
+menus:
+
+  page-1:
+    title: "      &#E59500&l★ &#FF7C00&l★ &#FF7C00&lT&#F98200&lA&#F28900&lG&#EC8F00&lS &#EC9E07&lM&#F2A70F&lE&#F9B016&lN&#FFB91D&lU &#FF7C00&l★ &#E59500&l★"
+    size: 36
+    next-page-slot: 32
+    remove-tag-slot: 31
+
+  page-2:
+    title: "      &#E59500&l★ &#FF7C00&l★ &#FF7C00&lT&#F98200&lA&#F28900&lG&#EC8F00&lS &#EC9E07&lM&#F2A70F&lE&#F9B016&lN&#FFB91D&lU &#FF7C00&l★ &#E59500&l★"
+    size: 36
+    previous-page-slot: 30
+    next-page-slot: 32
+    remove-tag-slot: 31
+
+  page-3:
+    title: "      &#E59500&l★ &#FF7C00&l★ &#FF7C00&lT&#F98200&lA&#F28900&lG&#EC8F00&lS &#EC9E07&lM&#F2A70F&lE&#F9B016&lN&#FFB91D&lU &#FF7C00&l★ &#E59500&l★"
+    size: 36
+    previous-page-slot: 30
+    remove-tag-slot: 31
+
+  fill-empty-slots: true
+
+  filler:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │                      SOUND SETTINGS                         │
+# └─────────────────────────────────────────────────────────────┘
+
+  sounds:
+    open: BLOCK_CHEST_OPEN
+    select: ENTITY_PLAYER_LEVELUP
+    denied: ENTITY_VILLAGER_NO
+    already-selected: BLOCK_NOTE_BLOCK_BASS
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │                      ITEMS SETTINGS                         │
+# └─────────────────────────────────────────────────────────────┘
+
+  remove-tag:
+    enabled: true
+
+    active:
+      material: PLAYER_HEAD
+      basehead: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTNjYzg1NDQzYjllMTg3Mzc0NDg1ODEzZTA1ZDBkNTNlNDhmNjVhNTM5MWU1MDM3ODliNTM1NDRlM2I2MzQ1YSJ9fX0=
+      name: "&fMenú &8» &8&#FFD700&lᴛᴀɢꜱ&8 &f"
+
+      lore:
+        - ""
+        - " &fTag Actual:"
+        - "   %current_tag%"
+        - ""
+        - " &8▪ &fClick para remover"
+        - " &f     tu tag actual"
+        - ""
+
+    inactive:
+      material: GRAY_DYE
+      name: "&fMenú &8» &8&#FFD700&lᴛᴀɢꜱ&8 &f"
+
+      lore:
+        - ""
+        - " &7Actualmente no tienes"
+        - " &7ningun tag activo."
+        - ""
+        - " &8▪ &fEquipa uno desde"
+        - " &f   el menu de tags"
+        - ""
+
+  items:
+    selected:
+      material: LIME_DYE
+      name: "&aSeleccionado"
+
+    locked:
+      material: BARRIER
+      name: "&cBloqueado"
