@@ -20,6 +20,10 @@ invalid-tag: "%prefix% &cTag Invalido."
 menu-open: "%prefix% &7Abriendo menu..."
 no-console: "%prefix% &cSolo jugadores pueden usar este comando."
 
+tag-purchased: "%prefix% &aHas comprado este tag por %price%"
+tag-insufficient-funds: "%prefix% &cNo tienes suficiente dinero. Necesitas: %price%"
+tag-bypass-purchase: "%prefix% &aHas obtenido este tag gratuitamente (bypass)"
+
 tag-status:
 
   unlocked: "&aDesbloqueado"
