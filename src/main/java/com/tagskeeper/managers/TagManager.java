@@ -31,7 +31,8 @@ public class TagManager {
             int slot = section.getInt(id + ".slot");
             int page = section.getInt(id + ".page", 1);
             List<String> lore = section.getStringList(id + ".lore");
-            this.tags.put(id.toLowerCase(), new Tag(id, tag, menuDisplay, preview, permission, material, slot, page, lore));
+            double price = section.getDouble(id + ".price", -1);
+            this.tags.put(id.toLowerCase(), new Tag(id, tag, menuDisplay, preview, permission, material, slot, page, lore, price));
          }
 
       }
