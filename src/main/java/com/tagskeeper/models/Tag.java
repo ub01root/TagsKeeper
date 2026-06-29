@@ -12,8 +12,9 @@ public class Tag {
    private final int slot;
    private final int page;
    private final List<String> lore;
+   private final double price;
 
-   public Tag(String id, String tag, String menuDisplay, String preview, String permission, String material, int slot, int page, List<String> lore) {
+   public Tag(String id, String tag, String menuDisplay, String preview, String permission, String material, int slot, int page, List<String> lore, double price) {
       this.id = id;
       this.tag = tag;
       this.menuDisplay = menuDisplay;
@@ -23,6 +24,7 @@ public class Tag {
       this.slot = slot;
       this.page = page;
       this.lore = lore;
+      this.price = price;
    }
 
    public String getId() {
@@ -59,5 +61,13 @@ public class Tag {
 
    public List<String> getLore() {
       return this.lore;
+   }
+
+   public double getPrice() {
+      return this.price;
+   }
+
+   public boolean hasPrice() {
+      return this.price > 0;
    }
 }
