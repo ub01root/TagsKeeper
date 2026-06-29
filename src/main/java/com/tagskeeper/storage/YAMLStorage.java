@@ -37,6 +37,15 @@ public class YAMLStorage {
       return this.config.getString(uuid.toString());
    }
 
+   public boolean hasPurchased(UUID uuid, String tagId) {
+      return this.config.getBoolean("purchased." + uuid.toString() + "." + tagId, false);
+   }
+
+   public void setPurchased(UUID uuid, String tagId) {
+      this.config.set("purchased." + uuid.toString() + "." + tagId, true);
+      this.save();
+   }
+
    private void save() {
       try {
          this.config.save(this.file);
