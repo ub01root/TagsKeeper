@@ -152,6 +152,7 @@ tags:
     preview: "&8&#C8C200&lᴋ&#E4B900&lɪ&#FFB000&lɴ&#F16C00&lɢ&8 &f{player}"
     permission: "tagskeeper.king"
     material: NAME_TAG
+    price: 10000
 
     page: 3
     slot: 13
