@@ -1,6 +1,7 @@
 package com.tagskeeper.listeners;
 
 import com.tagskeeper.Main;
+import com.tagskeeper.hooks.EconomyHook;
 import com.tagskeeper.managers.MenuManager;
 import com.tagskeeper.models.PlayerTagData;
 import com.tagskeeper.models.Tag;
@@ -71,30 +72,61 @@ public class InventoryListener implements Listener {
                               return;
                            }
 
-                           for(Tag tag : Main.getInstance().getTagManager().getTags().values()) {
-                              if (e.getSlot() == tag.getSlot() && tag.getPage() == currentPage) {
-                                 boolean hasPermission = player.hasPermission(tag.getPermission()) || player.hasPermission("alonsotags.tag." + tag.getId());
-                                 if (!hasPermission) {
-                                    player.sendMessage(MessageUtil.get("no-permission"));
-                                    playSound(player, var14.getString("menus.sounds.denied"));
-                                    return;
-                                 }
+                            for(Tag tag : Main.getInstance().getTagManager().getTags().values()) {
+                               if (e.getSlot() == tag.getSlot() && tag.getPage() == currentPage) {
+                                  PlayerTagData data = Main.getInstance().getPlayerDataManager().get(player.getUniqueId());
+                                  boolean owns = Main.getInstance().getStorage().hasPurchased(player.getUniqueId(), tag.getId());
+                                  boolean hasPermission = player.hasPermission(tag.getPermission()) || player.hasPermission("alonsotags.tag." + tag.getId()) || owns;
+                                  if (!hasPermission) {
+                                     if (tag.hasPrice()) {
+                                        EconomyHook econ = Main.getInstance().getEconomyHook();
+                                        if (econ.isEnabled()) {
+                                           if (player.hasPermission("tagskeeper.bypass.price")) {
+                                              Main.getInstance().getStorage().setPurchased(player.getUniqueId(), tag.getId());
+                                              player.sendMessage(MessageUtil.get("tag-bypass-purchase").replace("%price%", econ.format(tag.getPrice())));
+                                              playSound(player, var14.getString("menus.sounds.select"));
+                                              data.setSelectedTag(tag.getId());
+                                              Main.getInstance().getStorage().saveTag(player.getUniqueId(), tag.getId());
+                                              player.sendMessage(MessageUtil.get("tag-selected").replace("%tag%", ColorUtil.color(tag.getTag())));
+                                              player.closeInventory();
+                                              return;
+                                           }
+                                           if (!econ.hasBalance(player, tag.getPrice())) {
+                                              player.sendMessage(MessageUtil.get("tag-insufficient-funds").replace("%price%", econ.format(tag.getPrice())));
+                                              playSound(player, var14.getString("menus.sounds.denied"));
+                                              player.closeInventory();
+                                              return;
+                                           }
+                                           econ.withdraw(player, tag.getPrice());
+                                           Main.getInstance().getStorage().setPurchased(player.getUniqueId(), tag.getId());
+                                           player.sendMessage(MessageUtil.get("tag-purchased").replace("%price%", econ.format(tag.getPrice())));
+                                           playSound(player, var14.getString("menus.sounds.select"));
+                                           data.setSelectedTag(tag.getId());
+                                           Main.getInstance().getStorage().saveTag(player.getUniqueId(), tag.getId());
+                                           player.sendMessage(MessageUtil.get("tag-selected").replace("%tag%", ColorUtil.color(tag.getTag())));
+                                           player.closeInventory();
+                                           return;
+                                        }
+                                     }
+                                     player.sendMessage(MessageUtil.get("no-permission"));
+                                     playSound(player, var14.getString("menus.sounds.denied"));
+                                     return;
+                                  }
 
-                                 PlayerTagData data = Main.getInstance().getPlayerDataManager().get(player.getUniqueId());
-                                 if (tag.getId().equalsIgnoreCase(data.getSelectedTag())) {
-                                    player.sendMessage(MessageUtil.get("tag-already-selected"));
-                                    playSound(player, var14.getString("menus.sounds.already-selected"));
-                                    return;
-                                 }
+                                  if (tag.getId().equalsIgnoreCase(data.getSelectedTag())) {
+                                     player.sendMessage(MessageUtil.get("tag-already-selected"));
+                                     playSound(player, var14.getString("menus.sounds.already-selected"));
+                                     return;
+                                  }
 
-                                 data.setSelectedTag(tag.getId());
-                                 Main.getInstance().getStorage().saveTag(player.getUniqueId(), tag.getId());
-                                 player.sendMessage(MessageUtil.get("tag-selected").replace("%tag%", ColorUtil.color(tag.getTag())));
-                                 playSound(player, var14.getString("menus.sounds.select"));
-                                 player.closeInventory();
-                                 return;
-                              }
-                           }
+                                  data.setSelectedTag(tag.getId());
+                                  Main.getInstance().getStorage().saveTag(player.getUniqueId(), tag.getId());
+                                  player.sendMessage(MessageUtil.get("tag-selected").replace("%tag%", ColorUtil.color(tag.getTag())));
+                                  playSound(player, var14.getString("menus.sounds.select"));
+                                  player.closeInventory();
+                                  return;
+                               }
+                            }
                         }
 
                      }
