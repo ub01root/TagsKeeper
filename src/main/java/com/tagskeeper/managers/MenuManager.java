@@ -61,10 +61,19 @@ public class MenuManager {
 
       for(Tag tag : Main.getInstance().getTagManager().getTags().values()) {
          if (tag.getPage() == page) {
-            boolean unlocked = player.hasPermission(tag.getPermission()) || player.hasPermission("alonsotags.tag." + tag.getId());
+            boolean owns = Main.getInstance().getStorage().hasPurchased(player.getUniqueId(), tag.getId());
+            boolean unlocked = player.hasPermission(tag.getPermission()) || player.hasPermission("alonsotags.tag." + tag.getId()) || owns;
             Material material;
             if (!unlocked) {
-               material = Material.BARRIER;
+               if (tag.hasPrice() && Main.getInstance().getEconomyHook().isEnabled()) {
+                  try {
+                     material = Material.valueOf(tag.getMaterial());
+                  } catch (Exception var21) {
+                     material = Material.NAME_TAG;
+                  }
+               } else {
+                  material = Material.BARRIER;
+               }
             } else {
                try {
                   material = Material.valueOf(tag.getMaterial());
@@ -82,9 +91,11 @@ public class MenuManager {
                String preview = tag.getPreview().replace("{player}", player.getName());
                String status = unlocked ? MessageUtil.get("tag-status.unlocked") : MessageUtil.get("tag-status.locked");
                String selected = tag.getId().equalsIgnoreCase(data.getSelectedTag()) ? MessageUtil.get("tag-selection.selected") : MessageUtil.get("tag-selection.not-selected");
+               String price = tag.hasPrice() && Main.getInstance().getEconomyHook().isEnabled() ? Main.getInstance().getEconomyHook().format(tag.getPrice()) : "";
                line = line.replace("%preview%", preview);
                line = line.replace("%status%", status);
                line = line.replace("%selected%", selected);
+               line = line.replace("%price%", price);
                lore.add(ColorUtil.color(line));
             }
 
