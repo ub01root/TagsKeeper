@@ -2,6 +2,7 @@ package com.tagskeeper;
 
 import com.tagskeeper.commands.ReloadCommand;
 import com.tagskeeper.commands.TagsCommand;
+import com.tagskeeper.hooks.EconomyHook;
 import com.tagskeeper.hooks.PlaceholderAPIHook;
 import com.tagskeeper.listeners.InventoryListener;
 import com.tagskeeper.listeners.JoinListener;
@@ -17,6 +18,7 @@ public class Main extends JavaPlugin {
    private PlayerDataManager playerDataManager;
    private YAMLStorage storage;
    private ConfigManager configManager;
+   private EconomyHook economyHook;
 
    public void onEnable() {
       if (this.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
@@ -32,6 +34,8 @@ public class Main extends JavaPlugin {
       this.storage = new YAMLStorage();
       this.tagManager = new TagManager();
       this.playerDataManager = new PlayerDataManager();
+      this.economyHook = new EconomyHook();
+      this.economyHook.setup();
       this.getCommand("tags").setExecutor(new TagsCommand());
       this.getCommand("reloadtags").setExecutor(new ReloadCommand());
       this.getServer().getPluginManager().registerEvents(new JoinListener(), this);
@@ -62,5 +66,9 @@ public class Main extends JavaPlugin {
 
    public ConfigManager getConfigManager() {
       return this.configManager;
+   }
+
+   public EconomyHook getEconomyHook() {
+      return this.economyHook;
    }
 }
