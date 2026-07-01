@@ -3,4 +3,25 @@
 # DEV: github.com/DevAdvvy
 
 storage:
+  # Available types: YAML, SQLITE, MYSQL, REDIS
   type: YAML
+
+  # SQLite configuration (used when type: SQLITE)
+  sqlite:
+    file: data.db
+
+  # MySQL configuration (used when type: MYSQL)
+  mysql:
+    host: localhost
+    port: 3306
+    database: tagskeeper
+    username: root
+    password: ""
+    pool-size: 10
+
+  # Redis configuration (used when type: REDIS)
+  redis:
+    host: localhost
+    port: 6379
+    password: ""
+    use-ssl: false

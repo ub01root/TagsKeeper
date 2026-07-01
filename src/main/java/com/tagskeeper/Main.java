@@ -9,14 +9,16 @@ import com.tagskeeper.listeners.JoinListener;
 import com.tagskeeper.managers.ConfigManager;
 import com.tagskeeper.managers.PlayerDataManager;
 import com.tagskeeper.managers.TagManager;
-import com.tagskeeper.storage.YAMLStorage;
+import com.tagskeeper.database.Storage;
+import com.tagskeeper.database.StorageManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
    private static Main instance;
    private TagManager tagManager;
    private PlayerDataManager playerDataManager;
-   private YAMLStorage storage;
+   private Storage storage;
+   private StorageManager storageManager;
    private ConfigManager configManager;
    private EconomyHook economyHook;
 
@@ -31,7 +33,8 @@ public class Main extends JavaPlugin {
       this.saveResource("tags.yml", false);
       this.saveResource("menu.yml", false);
       this.configManager = new ConfigManager();
-      this.storage = new YAMLStorage();
+      this.storageManager = new StorageManager();
+      this.storage = this.storageManager.getStorage();
       this.tagManager = new TagManager();
       this.playerDataManager = new PlayerDataManager();
       this.economyHook = new EconomyHook();
@@ -48,6 +51,12 @@ public class Main extends JavaPlugin {
       this.getLogger().info("└──────────────────────────────────────┘");
    }
 
+   public void onDisable() {
+      if (this.storage != null) {
+         this.storage.close();
+      }
+   }
+
    public static Main getInstance() {
       return instance;
    }
@@ -60,8 +69,12 @@ public class Main extends JavaPlugin {
       return this.playerDataManager;
    }
 
-   public YAMLStorage getStorage() {
+   public Storage getStorage() {
       return this.storage;
+   }
+
+   public StorageManager getStorageManager() {
+      return this.storageManager;
    }
 
    public ConfigManager getConfigManager() {

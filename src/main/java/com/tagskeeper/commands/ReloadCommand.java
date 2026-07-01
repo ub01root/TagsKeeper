@@ -15,6 +15,7 @@ public class ReloadCommand implements CommandExecutor {
          Main plugin = Main.getInstance();
          plugin.reloadConfig();
          plugin.getConfigManager().reload();
+         plugin.getStorageManager().reload();
          plugin.getTagManager().loadTags();
          sender.sendMessage(MessageUtil.get("reload-success"));
          return true;
